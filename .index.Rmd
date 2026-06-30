@@ -1,0 +1,62 @@
+---
+title: "Tarea final"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+```{r, include=FALSE}
+
+con1 <- url("https://github.com/Emilia-Figueroa/TAREA-FINAL/raw/main/map_perimetro.rds")
+map_perimetrogg <- readRDS(con1)
+close(con1)
+
+con2 <- url("https://github.com/Emilia-Figueroa/TAREA-FINAL/raw/main/map_knn.rds")
+map_knngg <- readRDS(con2)
+close(con2)
+
+con3 <- url("https://github.com/Emilia-Figueroa/TAREA-FINAL/raw/main/map_banda_distancia.rds")
+map_banda_distanciagg <- readRDS(con3)
+close(con3)
+
+con4 <- url("https://github.com/Emilia-Figueroa/TAREA-FINAL/raw/main/map_kernel.rds")
+map_kernelgg <- readRDS(con4)
+close(con4)
+
+```
+
+## Introducción {.sidebar}
+
+Se presentan cuatro mapas LISA correspondientes a los distritos del departamento de Lima, utilizando cuatro definiciones diferentes de vecindad.
+
+## Column
+
+### Método Contiguidad (Perímetro)
+
+```{r}
+map_perimetrogg
+```
+
+### Método KNN
+
+```{r}
+map_knngg
+```
+
+## Column
+
+### Método Banda de Distancia
+
+```{r}
+map_banda_distanciagg
+```
+
+### Método Kernel
+
+```{r}
+map_kernelgg
+```
